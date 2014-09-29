@@ -115,3 +115,12 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+grails.plugin.reveng.defaultSchema='dbo'
+grails.plugin.reveng.excludeTables = [
+	'dbamibregistro.sys.dbamibdocumentos'
+]
+
+grails.plugins.twitterbootstrap.fixtaglib = true
+grails.plugins.twitterbootstrap.defaultBundle = 'bundle_bootstrap'
