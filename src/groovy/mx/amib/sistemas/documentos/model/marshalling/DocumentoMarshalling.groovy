@@ -12,6 +12,7 @@ class DocumentoMarshalling {
 		JSON.registerObjectMarshaller(Documento){ Documento documentoRepositorio ->
 			return [
 				id: documentoRepositorio.id,
+				uuid: documentoRepositorio.uuid,
 				clave: documentoRepositorio.clave,
 				mimetype: documentoRepositorio.mimetype,
 				fechaModificacion: documentoRepositorio.fechaModificacion,
@@ -26,6 +27,7 @@ class CnbvDgaOficioMarshalling {
 		JSON.registerObjectMarshaller(CnbvDgaOficio){ CnbvDgaOficio doc ->
 			return [
 				id: doc.id,
+				uuid: doc.uuid,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
 				datosAdicionales: doc.datosAdicionales,
@@ -41,6 +43,7 @@ class DocumentoPoderMarshalling {
 		JSON.registerObjectMarshaller(DocumentoPoder){ DocumentoPoder doc ->
 			return [
 				id: doc.id,
+				uuid: doc.uuid,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
 				datosAdicionales: doc.datosAdicionales,
@@ -56,6 +59,7 @@ class FotoSustenanteMarshalling {
 		JSON.registerObjectMarshaller(FotoSustenante){ FotoSustenante doc ->
 			return [
 				id: doc.id,
+				uuid: doc.uuid,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
 				numeroMatricula: doc.numeroMatricula,
@@ -71,6 +75,7 @@ class DocumentoSustentanteMarshalling {
 		JSON.registerObjectMarshaller(DocumentoSustentante){ DocumentoSustentante doc ->
 			return [
 				id: doc.id,
+				uuid: doc.uuid,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
 				numeroMatricula: doc.numeroMatricula,

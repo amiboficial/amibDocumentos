@@ -4,6 +4,7 @@ import java.util.Date;
 
 class Documento{
 
+	String uuid
 	String clave
 	byte[] dato
 	String mimetype

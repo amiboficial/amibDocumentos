@@ -18,6 +18,11 @@ class DocumentoService {
 		return Documento.get(id)
     }
 	
+	//Obtiene instancia de documento usando UUID
+	Documento obtenerDocumento(String uuid) {
+		return Documento.findByUuid(uuid)
+	}
+	
 	//Guarda los metadatos de un documento (independientemente del tipo)
 	void guardarMetadatosDocumento(Documento doc){
 		Documento docToSave = Documento.get(doc.getId())
@@ -52,6 +57,16 @@ class DocumentoService {
 	//Carga un archivo para determinado Documento
 	void cargarArchivoDocumento(long id, byte[] archivo, String mimetype) {
 		Documento docrep = Documento.get(id)
+		
+		docrep.dato = archivo
+		docrep.mimetype = mimetype
+		
+		docrep.save(flush: true)
+	}
+	
+	//Carga un archivo para determinado Documento usando UUID
+	void cargarArchivoDocumento(String uuid, byte[] archivo, String mimetype) {
+		Documento docrep = Documento.findByUuid(uuid)
 		
 		docrep.dato = archivo
 		docrep.mimetype = mimetype
