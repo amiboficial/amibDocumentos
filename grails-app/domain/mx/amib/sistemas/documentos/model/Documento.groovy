@@ -5,6 +5,7 @@ import java.util.Date;
 class Documento{
 
 	String uuid
+	String nombre
 	String clave
 	byte[] dato
 	String mimetype
@@ -14,6 +15,8 @@ class Documento{
 	static mapping = {
 		table 't001_t_doc'
 		
+		uuid column:'uuid'
+		nombre column:'tx_nombre'
 		clave column:'tx_clave'
 		dato column:'bl_dato'
 		mimetype column:'tx_mimetype'
@@ -25,6 +28,8 @@ class Documento{
 	}
 	
 	static constraints = {
+		uuid nullable: true
+		nombre nullable: true
 		clave nullable: true, maxSize: 100
 		dato nullable: true
 		mimetype maxSize: 128

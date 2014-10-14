@@ -1,5 +1,7 @@
 package mx.amib.sistemas.documentos.model.marshalling
 
+import java.util.Date;
+
 import grails.converters.JSON
 import mx.amib.sistemas.documentos.model.CnbvDgaOficio
 import mx.amib.sistemas.documentos.model.Documento
@@ -13,6 +15,7 @@ class DocumentoMarshalling {
 			return [
 				id: documentoRepositorio.id,
 				uuid: documentoRepositorio.uuid,
+				nombre: documentoRepositorio.nombre,
 				clave: documentoRepositorio.clave,
 				mimetype: documentoRepositorio.mimetype,
 				fechaModificacion: documentoRepositorio.fechaModificacion,
@@ -28,6 +31,7 @@ class CnbvDgaOficioMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
 				datosAdicionales: doc.datosAdicionales,
@@ -44,11 +48,23 @@ class DocumentoPoderMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
-				datosAdicionales: doc.datosAdicionales,
 				fechaModificacion: doc.fechaModificacion,
-				fechaCreacion: doc.fechaCreacion
+				fechaCreacion: doc.fechaCreacion,
+				
+				tipoDocumentoRespaldo: doc.tipoDocumentoRespaldo,
+				representanteLegalNombre: doc.representanteLegalNombre,
+				representanteLegalApellido1: doc.representanteLegalApellido1,
+				representanteLegalApellido2: doc.representanteLegalApellido2,
+				esRegistradoPorGrupoFinanciero: doc.esRegistradoPorGrupoFinanciero,
+				numeroEscritura: doc.numeroEscritura,
+				fechaApoderamiento: doc.fechaApoderamiento,
+				jsonApoderados: doc.jsonApoderados,
+				jsonNotario: doc.jsonNotario,
+				jsonGrupoFinanciero: doc.jsonGrupoFinanciero,
+				jsonInstitucion: doc.jsonInstitucion
 			]
 		}
 	}
@@ -60,6 +76,7 @@ class FotoSustenanteMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
 				numeroMatricula: doc.numeroMatricula,
@@ -76,6 +93,7 @@ class DocumentoSustentanteMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
 				numeroMatricula: doc.numeroMatricula,

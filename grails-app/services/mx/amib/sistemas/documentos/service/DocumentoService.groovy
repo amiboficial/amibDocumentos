@@ -54,12 +54,17 @@ class DocumentoService {
 		docToSave.save(flush:true)
 	}
 		
+	void eliminarDocumento(String uuid){
+		Documento docInstance = Documento.findByUuid(uuid)
+		docInstance.delete flush:true
+	}
+	
 	//Carga un archivo para determinado Documento
 	void cargarArchivoDocumento(long id, byte[] archivo, String mimetype) {
 		Documento docrep = Documento.get(id)
 		
 		docrep.dato = archivo
-		docrep.mimetype = mimetype
+		//docrep.mimetype = mimetype
 		
 		docrep.save(flush: true)
 	}
@@ -69,9 +74,11 @@ class DocumentoService {
 		Documento docrep = Documento.findByUuid(uuid)
 		
 		docrep.dato = archivo
-		docrep.mimetype = mimetype
+		//docrep.mimetype = mimetype
 		
+		println "AQUI ENTRO #2"
 		docrep.save(flush: true)
+		println "AQUI ENTRO #3"
 	}
 	
 }

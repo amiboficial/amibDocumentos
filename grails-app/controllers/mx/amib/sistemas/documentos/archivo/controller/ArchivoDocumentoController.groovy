@@ -26,6 +26,8 @@ class ArchivoDocumentoController {
 		CommonsMultipartFile uploadFile = params.archivo
 		String uuid = params.uuid
 		
+		println "AQUI ENTRO #1"
+		
 		documentoService.cargarArchivoDocumento(uuid, uploadFile.getBytes(), uploadFile.getContentType())
 		render(status: 201, text: 'Se a cargado el archivo al documento con uuid: ${uuid}')
 	}
