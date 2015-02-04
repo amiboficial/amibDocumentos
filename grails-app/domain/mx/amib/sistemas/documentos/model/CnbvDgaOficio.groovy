@@ -2,17 +2,23 @@ package mx.amib.sistemas.documentos.model
 
 class CnbvDgaOficio extends Documento {
 
-	String datosAdicionales
-
+	String matriculas
+	String nombres
+	String autorizaciones
+	
 	static mapping = {
 		table 't002_t_cnbvdga'
 		
-		datosAdicionales column:'tx_datosadicionales'
-
+		matriculas column:'tx_matriculas'
+		nombres column:'tx_nombres'
+		autorizaciones column:'tx_autorizaciones'
+		
 		version false
 	}
 
 	static constraints = {
-		datosAdicionales nullable: true, maxSize: 100
+		matriculas nullable: true
+		nombres nullable: true
+		autorizaciones nullable: true
 	}
 }

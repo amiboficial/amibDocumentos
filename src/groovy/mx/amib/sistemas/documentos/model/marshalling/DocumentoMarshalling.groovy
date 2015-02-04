@@ -6,6 +6,7 @@ import grails.converters.JSON
 import mx.amib.sistemas.documentos.model.CnbvDgaOficio
 import mx.amib.sistemas.documentos.model.Documento
 import mx.amib.sistemas.documentos.model.DocumentoPoder
+import mx.amib.sistemas.documentos.model.DocumentoRevocacion
 import mx.amib.sistemas.documentos.model.DocumentoSustentante
 import mx.amib.sistemas.documentos.model.FotoSustenante
 
@@ -34,7 +35,11 @@ class CnbvDgaOficioMarshalling {
 				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
-				datosAdicionales: doc.datosAdicionales,
+				
+				matriculas: doc.matriculas,
+				nombres: doc.nombres,
+				autorizaciones: doc.autorizaciones,
+				
 				fechaModificacion: doc.fechaModificacion,
 				fechaCreacion: doc.fechaCreacion
 			]
@@ -55,16 +60,40 @@ class DocumentoPoderMarshalling {
 				fechaCreacion: doc.fechaCreacion,
 				
 				tipoDocumentoRespaldo: doc.tipoDocumentoRespaldo,
-				representanteLegalNombre: doc.representanteLegalNombre,
-				representanteLegalApellido1: doc.representanteLegalApellido1,
-				representanteLegalApellido2: doc.representanteLegalApellido2,
-				esRegistradoPorGrupoFinanciero: doc.esRegistradoPorGrupoFinanciero,
+				representanteLegalNombreCompleto: doc.representanteLegalNombreCompleto,
 				numeroEscritura: doc.numeroEscritura,
 				fechaApoderamiento: doc.fechaApoderamiento,
-				jsonApoderados: doc.jsonApoderados,
-				jsonNotario: doc.jsonNotario,
-				jsonGrupoFinanciero: doc.jsonGrupoFinanciero,
-				jsonInstitucion: doc.jsonInstitucion
+				matriculasApoderados: doc.matriculasApoderados,
+				nombresApoderados: doc.nombresApoderados,
+				notario: doc.notario,
+				grupoFinanciero: doc.grupoFinanciero,
+				institucion: doc.institucion
+			]
+		}
+	}
+}
+
+class DocumentoRevocacionMarshalling {
+	void register(){
+		JSON.registerObjectMarshaller(DocumentoRevocacion){ DocumentoRevocacion doc ->
+			return [
+				id: doc.id,
+				uuid: doc.uuid,
+				nombre: doc.nombre,
+				clave: doc.clave,
+				mimetype: doc.mimetype,
+				fechaModificacion: doc.fechaModificacion,
+				fechaCreacion: doc.fechaCreacion,
+				
+				tipoDocumentoRespaldo: doc.tipoDocumentoRespaldo,
+				representanteLegalNombreCompleto: doc.representanteLegalNombreCompleto,
+				numeroEscritura: doc.numeroEscritura,
+				fechaRevocacion: doc.fechaRevocacion,
+				matriculasRevocados: doc.matriculasRevocados,
+				nombresRevocados: doc.nombresRevocados,
+				notario: doc.notario,
+				grupoFinanciero: doc.grupoFinanciero,
+				institucion: doc.institucion
 			]
 		}
 	}

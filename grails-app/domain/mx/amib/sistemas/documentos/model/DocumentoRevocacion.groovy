@@ -1,25 +1,27 @@
 package mx.amib.sistemas.documentos.model
 
-class DocumentoPoder extends Documento {
+import java.util.Date;
 
+class DocumentoRevocacion extends Documento {
+	
 	String tipoDocumentoRespaldo
 	String representanteLegalNombreCompleto
 	Integer numeroEscritura
-	Date fechaApoderamiento
-	String matriculasApoderados
-	String nombresApoderados
+	Date fechaRevocacion
+	String matriculasRevocados
+	String nombresRevocados
 	String notario
 	String grupoFinanciero
 	String institucion
 
 	static mapping = {
-		table 't003_t_docpoder'
-		tipoDocumentoRespaldo column:'ds_tpdocrespaldo'
+		table 't006_t_docrevocacion'
+		tipoDocumentoRespaldo column:'ds_tpdocrespaldorevoc'
 		representanteLegalNombreCompleto column:'nb_nbreplegal'
 		numeroEscritura column:'nu_escritura'
-		fechaApoderamiento column:'fh_apoderamiento'
-		matriculasApoderados column:'tx_matriculas'
-		nombresApoderados column:'tx_apoderados'
+		fechaRevocacion column:'fh_revocacion'
+		matriculasRevocados column:'tx_matriculas'
+		nombresRevocados column:'tx_revocados'
 		notario column:'tx_notario'
 		grupoFinanciero column:'tx_gpofinanciero'
 		institucion column:'tx_instituto'
@@ -29,7 +31,7 @@ class DocumentoPoder extends Documento {
 
 	static constraints = {
 		representanteLegalNombreCompleto nullable: true, maxSize: 280
-		nombresApoderados nullable: true
+		nombresRevocados nullable: true
 		notario nullable: true
 		grupoFinanciero nullable: true
 		institucion nullable: true

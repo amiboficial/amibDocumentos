@@ -12,7 +12,11 @@ import mx.amib.sistemas.documentos.model.FotoSustenante
 
 @Transactional
 class DocumentoService {
-
+	class SearchResult {
+		def list
+		def count
+	}
+	
 	//Obtiene instancia de documento
     Documento obtenerDocumento(long id) {
 		return Documento.get(id)

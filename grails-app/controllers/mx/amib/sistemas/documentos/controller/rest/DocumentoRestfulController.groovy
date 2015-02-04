@@ -25,11 +25,16 @@ class DocumentoRestfulController extends RestfulController {
 	def deleteByUuid(){
 		String uuid = params.uuid
 		HashMap<String,String> responseMap = new HashMap<String,String>()
-		
-		eliminarDocumento(uuid)
-		
-		documentoService.responseMap.put("status","OK")
-		
+		try
+		{
+			documentoService.eliminarDocumento(uuid)
+			responseMap.put("status","OK")
+		}
+		catch(Exception e){
+			responseMap.put("status","ERROR")
+			responseMap.put("details",e.getMessage())
+		}
+
 		render responseMap as JSON
 	}
 	

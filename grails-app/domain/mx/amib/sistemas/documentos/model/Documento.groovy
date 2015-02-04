@@ -2,7 +2,7 @@ package mx.amib.sistemas.documentos.model
 
 import java.util.Date;
 
-class Documento{
+class Documento {
 
 	String uuid
 	String nombre
