@@ -26,7 +26,7 @@ class ArchivoDocumentoController {
 	}
 	
 	def descargarArchivoDocumento(long id) {
-		Documento docrep = documentoService.obtenerDocumento(id)
+		def docrep = documentoService.obtenerDocumentoBlob(id)
 		
 		if(docrep != null) {
 			//response.setHeader("Content-disposition", "attachment; filename=tipoDocArchivo")
@@ -39,7 +39,7 @@ class ArchivoDocumentoController {
 	
 	def descargarArchivoDocumentoUuid() {
 		String uuid = params.uuid
-		Documento docrep = documentoService.obtenerDocumento(uuid)
+		def docrep = documentoService.obtenerDocumentoBlob(uuid)
 		
 		if(docrep != null) {
 			//response.setHeader("Content-disposition", "attachment; filename=tipoDocArchivo")

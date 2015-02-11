@@ -16,6 +16,8 @@ class DocumentoMarshalling {
 			return [
 				id: documentoRepositorio.id,
 				uuid: documentoRepositorio.uuid,
+				idTipo: documentoRepositorio.idTipo,
+				
 				nombre: documentoRepositorio.nombre,
 				clave: documentoRepositorio.clave,
 				mimetype: documentoRepositorio.mimetype,
@@ -32,6 +34,7 @@ class CnbvDgaOficioMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				idTipo: doc.idTipo,
 				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
@@ -53,6 +56,7 @@ class DocumentoPoderMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				idTipo: doc.idTipo,
 				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
@@ -79,6 +83,7 @@ class DocumentoRevocacionMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				idTipo: doc.idTipo,
 				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
@@ -105,6 +110,7 @@ class FotoSustenanteMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				idTipo: doc.idTipo,
 				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,
@@ -122,6 +128,7 @@ class DocumentoSustentanteMarshalling {
 			return [
 				id: doc.id,
 				uuid: doc.uuid,
+				idTipo: doc.idTipo,
 				nombre: doc.nombre,
 				clave: doc.clave,
 				mimetype: doc.mimetype,

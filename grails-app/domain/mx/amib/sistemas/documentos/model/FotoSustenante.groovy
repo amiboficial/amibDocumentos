@@ -5,6 +5,10 @@ class FotoSustenante extends Documento {
 	Integer numeroMatricula
 	String nombreCompleto
 
+	public FotoSustenante(){
+		this.idTipo = TipoDocumento.FOTO_SUSTNT.id
+	}
+	
 	static mapping = {
 		table 't004_t_fotosustentante'
 		

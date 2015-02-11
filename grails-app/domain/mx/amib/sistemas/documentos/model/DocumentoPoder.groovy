@@ -12,6 +12,10 @@ class DocumentoPoder extends Documento {
 	String grupoFinanciero
 	String institucion
 
+	public DocumentoPoder(){
+		this.idTipo = TipoDocumento.DOC_PODER.id
+	}
+	
 	static mapping = {
 		table 't003_t_docpoder'
 		tipoDocumentoRespaldo column:'ds_tpdocrespaldo'

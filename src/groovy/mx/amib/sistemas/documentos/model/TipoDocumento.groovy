@@ -1,10 +1,12 @@
 package mx.amib.sistemas.documentos.model
 
 public enum TipoDocumento {
-	CNBVDGA(1,"CNBVDGA","CnbvDga"), 
-	DOCPODER(2,"DOCPODER","DocumentoPoder"), 
-	FOTOSUSTNT(3,"FOTOSUSTNT","FotoSustentante"), 
-	DOCSUSTNT(4,"DOCSUSTNT","DocumentoSustentante")
+	NOT_TYPE(1,"NOT_TYPE",""),
+	CNBV_DGA_OFICIO(2,"CNBV_DGA_OFICIO","CnbvDgaOficio"), 
+	DOC_PODER(3,"DOC_PODER","DocumentoPoder"),
+	FOTO_SUSTNT(4,"FOTO_SUSTNT","FotoSustentante"), 
+	DOC_SUSTNT(5,"DOC_SUSTNT","DocumentoSustentante"),
+	DOC_REV(6,"DOC_REV","DocumentoRevocacion")
 	
 	Integer id
 	String clave
@@ -22,6 +24,10 @@ public enum TipoDocumento {
 
 	public Integer getId() {
 		return id
+	}
+	
+	public String getClave() {
+		return clave
 	}
 	
 }

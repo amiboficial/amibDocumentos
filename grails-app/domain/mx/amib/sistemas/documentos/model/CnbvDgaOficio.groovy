@@ -6,6 +6,10 @@ class CnbvDgaOficio extends Documento {
 	String nombres
 	String autorizaciones
 	
+	public CnbvDgaOficio(){
+		this.idTipo = TipoDocumento.CNBV_DGA_OFICIO.id
+	}
+	
 	static mapping = {
 		table 't002_t_cnbvdga'
 		

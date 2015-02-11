@@ -6,6 +6,10 @@ class DocumentoSustentante extends Documento {
 	String tipoDocumentoSustentante
 	String nombreCompleto
 	
+	public DocumentoSustentante(){
+		this.idTipo = TipoDocumento.DOC_SUSTNT.id
+	}
+	
 	static mapping = {
 		table 't005_t_docsustenate'
 		

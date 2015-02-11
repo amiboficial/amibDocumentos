@@ -14,6 +14,10 @@ class DocumentoRevocacion extends Documento {
 	String grupoFinanciero
 	String institucion
 
+	public DocumentoRevocacion(){
+		this.idTipo = TipoDocumento.DOC_REV.id
+	}
+	
 	static mapping = {
 		table 't006_t_docrevocacion'
 		tipoDocumentoRespaldo column:'ds_tpdocrespaldorevoc'
