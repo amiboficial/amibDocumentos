@@ -2,7 +2,7 @@ package mx.amib.sistemas.documentos.model.readonly
 
 import mx.amib.sistemas.documentos.model.Documento
 
-class DocumentoDescripciones extends Documento {
+class DocumentoDescripciones {
 	String descripcion1
 	String descripcion2
 	String descripcion3

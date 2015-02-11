@@ -44,7 +44,8 @@ class DocumentoService {
 		}
 
 		sr.count = DocumentoMatricula.executeQuery("select count(dm) from DocumentoMatricula as dm where dm.matriculas like :matricula",[matricula:matriculaToFind])[0]
-		sr.list = DocumentoMatricula.findAllByMatriculasLike(matriculaToFind,[max:max,offset:offset,sort:sort,order:order])
+		def idList = DocumentoMatricula.executeQuery("select dm.id from DocumentoMatricula as dm where dm.matriculas like :matricula",[matricula:matriculaToFind])
+		sr.list = Documento.findAllByIdInList(idList,[max: max, offset: offset, sort:sort, order:order])
 		
 		return sr
 	}
@@ -90,8 +91,9 @@ class DocumentoService {
 		}
 		
 		sr.count = DocumentoDescripciones.executeQuery("select count(dd) from DocumentoDescripciones as dd where lower(dd.descripcion1) like lower(:desc) or lower(dd.descripcion2) like lower(:desc) or lower(dd.descripcion3) like lower(:desc) or lower(dd.descripcion4) like lower(:desc) or lower(dd.descripcion5) like lower(:desc) or lower(dd.descripcion6) like lower(:desc)",[desc:descripcionToFind])[0]
-		sr.list = DocumentoDescripciones.executeQuery("from DocumentoDescripciones as dd where lower(dd.descripcion1) like lower(:desc) or lower(dd.descripcion2) like lower(:desc) or lower(dd.descripcion3) like lower(:desc) or lower(dd.descripcion4) like lower(:desc) or lower(dd.descripcion5) like lower(:desc) or lower(dd.descripcion6) like lower(:desc) order by dd." + sort + " " + order,[desc:descripcionToFind],[max: max, offset: offset])
-		
+		def idList = DocumentoDescripciones.executeQuery("select dd.id from DocumentoDescripciones as dd where lower(dd.descripcion1) like lower(:desc) or lower(dd.descripcion2) like lower(:desc) or lower(dd.descripcion3) like lower(:desc) or lower(dd.descripcion4) like lower(:desc) or lower(dd.descripcion5) like lower(:desc) or lower(dd.descripcion6) like lower(:desc)",[desc:descripcionToFind])
+		sr.list = Documento.findAllByIdInList(idList,[max: max, offset: offset, sort:sort, order:order])
+
 		return sr
 	}
 	

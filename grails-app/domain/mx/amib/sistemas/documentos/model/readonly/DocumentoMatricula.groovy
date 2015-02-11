@@ -2,7 +2,7 @@ package mx.amib.sistemas.documentos.model.readonly
 
 import mx.amib.sistemas.documentos.model.Documento
 
-class DocumentoMatricula extends Documento {
+class DocumentoMatricula {
 	String matriculas
 	
 	static mapping = {
