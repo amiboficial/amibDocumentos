@@ -26,6 +26,28 @@ class DocumentoService {
 		return sr
 	}
 	
+	SearchResult findAllGeneric(Integer max, Integer offset, String sort, String order){
+		SearchResult sr = new SearchResult()
+		
+		if(sort == null || sort == ""){
+			sort = "id"
+		}
+		else if(["id","nombre","mimetype","fechaModificacion","fechaCreacion"].find{ sort == it } == null){
+			sort = "id"
+		}
+		if(order == null || order == ""){
+			order = "asc"
+		}
+		else if(order != "desc" && order != "asc"){
+			order = "asc"
+		}
+
+		sr.count = DocumentoMatricula.executeQuery("select count(d) from Documento as d where d.idTipo = :idTipo",[idTipo:TipoDocumento.NOT_TYPE.getId()])[0]
+		sr.list = Documento.findAllByIdTipo(TipoDocumento.NOT_TYPE.getId(),[max: max, offset: offset, sort:sort, order:order])
+		
+		return sr
+	}
+	
 	SearchResult findAllByMatricula(Integer numeroMatricula, Integer max, Integer offset, String sort, String order){
 		SearchResult sr = new SearchResult()
 		String matriculaToFind = "%" + numeroMatricula + ";%"

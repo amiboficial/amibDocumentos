@@ -39,6 +39,26 @@ class DocumentoRestfulController extends RestfulController {
 		render responseMap as JSON
 	}
 	
+	def findAllGeneric(){
+		Integer max = Math.min(Integer.parseInt(params.max?:'10'), 100)
+		Integer offset = Integer.parseInt(params.offset?:'0')
+		String sort = params.sort?:"id"
+		String order = params.order?:"desc"
+		
+		HashMap<String,String> responseMap = new HashMap<String,String>()
+		
+		responseMap.put("max",max)
+		responseMap.put("offset",offset)
+		responseMap.put("sort",sort)
+		responseMap.put("order",order)
+		
+		def result = documentoService.findAllGeneric(max,offset,sort,order)
+		responseMap.put("count",result.count)
+		responseMap.put("list",result.list)
+		
+		render responseMap as JSON
+	}
+	
 	def findAllByMatricula(){
 		Integer matricula = Integer.parseInt(params.matricula?:'-1')
 		
