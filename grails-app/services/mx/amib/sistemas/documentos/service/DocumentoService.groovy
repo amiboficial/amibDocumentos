@@ -26,6 +26,15 @@ class DocumentoService {
 		return sr
 	}
 	
+	SearchResult findAllByUuidList(List<String> uuids){
+		SearchResult sr = new SearchResult()
+		
+		sr.list = Documento.findAllByUuidInList(uuids)
+		sr.count = sr.list.size()
+		
+		return sr
+	}
+	
 	SearchResult findAllGeneric(Integer max, Integer offset, String sort, String order){
 		SearchResult sr = new SearchResult()
 		

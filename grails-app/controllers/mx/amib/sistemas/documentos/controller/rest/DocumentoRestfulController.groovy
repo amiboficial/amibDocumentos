@@ -17,6 +17,23 @@ class DocumentoRestfulController extends RestfulController {
 		super(Documento)
 	}
 	
+	def findAllByUuidList(){		
+		List<String> uuidList = new ArrayList<String>()
+		def uuidJsonArray = request.JSON
+		
+		HashMap<String,String> responseMap = new HashMap<String,String>()
+		
+		uuidJsonArray.each{ x ->
+			uuidList.add(x)
+		}
+				
+		def result = documentoService.findAllByUuidList(uuidList)
+		responseMap.put("count",result.count)
+		responseMap.put("list",result.list)
+		
+		render responseMap as JSON
+	}
+	
 	def findAllByUuid(){
 		String uuid = params.uuid?:''
 		
