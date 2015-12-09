@@ -11,7 +11,7 @@ class DocumentoSustentante extends Documento {
 	}
 	
 	static mapping = {
-		table 't005_t_docsustenate'
+		table 't005_t_docsustentante'
 		
 		numeroMatricula column:'nu_matricula'
 		nombreCompleto column:'nb_sustentante'
