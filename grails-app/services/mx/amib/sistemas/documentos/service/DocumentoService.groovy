@@ -219,7 +219,9 @@ class DocumentoService {
 	//Carga un archivo para determinado Documento
 	void cargarArchivoDocumento(long id, byte[] archivo, String mimetype) {
 		DocumentoBlob docrep = DocumentoBlob.get(id)
-		
+		if(docrep == null){
+			docrep = new DocumentoBlob()
+		}
 		docrep.dato = archivo
 		//docrep.mimetype = mimetype
 		
@@ -229,7 +231,9 @@ class DocumentoService {
 	//Carga un archivo para determinado Documento usando UUID
 	void cargarArchivoDocumento(String uuid, byte[] archivo, String mimetype) {
 		DocumentoBlob docrep = DocumentoBlob.findByUuid(uuid)
-		
+		if(docrep == null){
+			docrep = new DocumentoBlob()
+		}
 		docrep.dato = archivo
 		//docrep.mimetype = mimetype
 		

@@ -2,8 +2,8 @@ dataSource {
 	pooled = false//pooled = true
 	//jmxExport = true
 	driverClassName = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-	username = "sa"
-	password = "bimalatrop2014"
+	username = "auditoria"
+	password = "E5c0m100"
 }
 hibernate {
 	cache.use_second_level_cache = true
@@ -18,19 +18,19 @@ environments {
 	development {
 		dataSource {
 			dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
-			url = "jdbc:sqlserver://bima-devqa-serv:1433;databaseName=dbamibdocumentos"
+			url = "jdbc:sqlserver://10.100.128.58:1433;databaseName=qa_amib_documentos"
 		}
 	}
 	test {
 		dataSource {
 			dbCreate = "validate"
-		   url = "jdbc:sqlserver://bima-devqa-serv:1433;databaseName=dbamibdocumentos"
+		   url = "jdbc:sqlserver://10.100.128.58:1433;databaseName=qa_amib_documentos"
 		}
 	}
 	production {
 		dataSource {
-			dbCreate = "validate"
-			url = "jdbc:sqlserver://bima-devqa-serv:1433;databaseName=dbamibdocumentos"
+			//dbCreate = "validate"
+			url = "jdbc:sqlserver://10.100.128.58:1433;databaseName=qa_amib_documentos"
 			properties {
 			   // See http://grails.org/doc/latest/guide/conf.html#dataSource for documentation
 			   jmxEnabled = true
